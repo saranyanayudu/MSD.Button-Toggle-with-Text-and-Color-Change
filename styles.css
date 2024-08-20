@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle, #1e3c72, #2a5298); 
+}
+
+.container {
+    text-align: center;
+}
+
+.box {
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-button {
+    display: inline-block;
+    background-color: #ff512f;
+    background-image: linear-gradient(315deg, #ff512f 0%, #dd2476 74%);
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.toggle-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+    transition: transform 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+}
+
+.toggle-button .button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.toggle-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.toggle-input:checked + .toggle-button {
+    background-image: linear-gradient(315deg, #ff9a8b 0%, #fecfef 100%);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-input:checked ~ .box {
+    background: linear-gradient(135deg, #24c6dc, #514a9d); 
+    color: #fff;
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-input:checked ~ .box .text {
+    color: #f8f8f8;
+    transform: rotate(5deg);
+}
